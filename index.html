@@ -2,54 +2,50 @@
 <html lang="pt-br">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Convert Money</title>
-<link rel="stylesheet" href="style.css">
-<link rel="shortcut icon" href="assets/icons8-initiate-money-transfer-color-96.png" type="image/x-icon">
+<title>Procurar-contato</title>
 </head>
 <body>
-<div class="container">
-<header>
-<h1>Convert Money</h1>
-</header>
+<input placeholder="Digite o nome do contato">
+<p></p>
 
-<main>
-<label>
-Converter <b>de:</b>
-<select class="currency-select">
-<option>R$ Real Brasileiro</option>
-</select>
-</label>
-<label>
-Converter <b>para:</b>
-<select id="currency-select">
-<option value="dolar">US$ Dólar americano</option>
-<option value="euro">€ Euro</option>
-<option value="btc">BTC Bitcoin</option>
-</select>
-</label>
 
-<label>
-<b>Valor:</b>
-<input id='input-real' placeholder="R$10.000,00" type="text">
-</label>
-<button class="convert-button" type="button">Converter</button>
-<section>
-<div class="currency-container">
-<img src="assests/brasil 2.png" alt="Brazil flag">
-<p class="currency-name">Real</p>
-<p class="currency-value" id="real-value-text">R$ 0</p>
-</div>
-<img class="arrow" src="assests/Vector.png" alt="Arrow">
-<div class="currency-container">
-<img src="assests/dolar.png" alt="USA flag" id="currency-img">
-<p class="currency-name" id="currency-name">Dólar americano</p>
-<p class="currency-value" id="currency-value-text">0</p>
-</div>
-</section>
-</main>
-</div>
+<button onclick="search()">PROCURAR CONTATO</button>
+
+
+
 </body>
-<script src="./script.js"></script>
+
+<script>
+
+let p = document.querySelector ("p")
+
+let input = document.querySelector ("input")
+
+
+
+const contacts = [
+
+{ Name: "Flavio", number: "(11) 992224205" },
+{ Name: "Carol", number: "(12) 992224205" },
+{ Name: "Nathan", number: "(13) 992224205" },
+{ Name: "Lauryn", number: "(14) 992224205" },
+
+]
+
+
+function search(){
+
+  for(let i = 0; i < contacts.length; i++) {
+    if (input.value.toLowerCase() === contacts[i].Name.toLowerCase()) {
+      p.innerHTML = "Contato Encontrado Nome: ${contacts[i].Name} Tel: ${contacts[i].number}"
+      break;
+    } else {
+      p.innerHTML = "Contato não encontrado, tente novamente";
+    }
+  }
+
+}
+
+</script>
 </html>
